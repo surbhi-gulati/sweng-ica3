@@ -1,7 +1,8 @@
-import { Color, timerAtNextSecond, colorAtNextSecond } from './TrafficLight'
-// import { Color, timerAtNextSecond, colorAtNextSecond } from './BetterTrafficLight'
+// import { Color, timerAtNextSecond, colorAtNextSecond } from './TrafficLight'
+import { Color, LightColorDuration, timerAtNextSecond, colorAtNextSecond } from './BetterTrafficLight'
 
 test("tests for timerAtNextSecond", () => {
+
     expect(timerAtNextSecond(17)).toBe(16)
     expect(timerAtNextSecond(1)).toBe(20)
 })
