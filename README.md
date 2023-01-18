@@ -25,3 +25,4 @@ Write a new file, called betterTrafficLight.ts, which solves the same problem wh
 
 Now look at your own code.  Based on your experience with traffic lights, list 3 assumptions that your code makes about the behavior of traffic lights in a large city.  In what ways is the client likely to be unhappy with the assumptions you made?  (Stretch goal: how could you redesign your code to make it more flexible?)
 
+NOTE: Completed in codeCritique.txt.

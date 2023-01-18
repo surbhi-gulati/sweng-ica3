@@ -1,3 +1,5 @@
+Partners: Surbhi Gulati, Ally Choung
+
 Critiques for Whitney's code:
 
 1. Use good names 
