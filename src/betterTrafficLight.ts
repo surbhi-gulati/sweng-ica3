@@ -8,7 +8,7 @@ export type LightColorDuration = {
 export function timerAtNextSecond (currentColor: Color, secondsRemaining: number, lightCycle: LightColorDuration[]): number {
     if (secondsRemaining === 1) {
       const currColorIdx = lightCycle.findIndex(lcd => lcd.color === currentColor);
-      const nextColorIdx = lightCycle.at((currColorIdx) + 1 % lightCycle.length);
+      const nextColorIdx = lightCycle.at((currColorIdx + 1) % lightCycle.length);
       if (nextColorIdx) {
         return nextColorIdx.durationInSeconds;
       }
