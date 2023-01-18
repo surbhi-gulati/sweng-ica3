@@ -22,3 +22,20 @@ program this is going to require a lot of extra encoding about the color cycle.
 The order of the colors in `colorAtNextSecond` and the 20 second magic number in
 `timerAtNextSecond` are both values that might change. They should be defined external
 to their respective functions.
+
+Critiques for our own code:
+
+1. We restrict to the 3 Color options we provide, but in order to be more extensive (don't
+hardcode things that are likely to change) we can expand this definition to accept custom
+strings from users. This tradeoff is possible when we cease to assume that we only have
+ability to communicate with the hardware about a traditional red-yellow-green light set-up.
+
+2. Duration per light is fixed and cannot be sent in as a different value based on the 
+temporal conditions. In traffic time we may want to make adjustments to duration, so this is
+also a constant value that we may not want to have assigned. Instead, we can build a more
+dynamic set of parameters. To make our code more flexible to extensions we may build a way
+to update our LightColorDuration data based on event-driven architecture.
+
+3. We can make our code more DRY (as a code-safety concern) by having a constant set of values
+that all of these functions use for `LightColorDuration`. Otherwise, if we pass different 
+information in to the two functions - and others - our system will not be in sync over the same data.
