@@ -7,21 +7,25 @@ export type LightColorDuration = {
 
 export function timerAtNextSecond (currentColor: Color, secondsRemaining: number, lightCycle: LightColorDuration[]): number {
     if (secondsRemaining === 1) {
-      const indexOfColor = lightCycle.findIndex(lcd => lcd.color === currentColor);
-      const val = lightCycle.at(indexOfColor + 1 % lightCycle.length);
-      if (val) {
-        return val.durationInSeconds;
+      const currColorIdx = lightCycle.findIndex(lcd => lcd.color === currentColor);
+      const nextColorIdx = lightCycle.at(currColorIdx + 1 % lightCycle.length);
+      if (nextColorIdx) {
+        return nextColorIdx.durationInSeconds;
       }
       return secondsRemaining;
     } 
     return (secondsRemaining - 1)
 }
 
-export function colorAtNextSecond(currentColor: Color, secondsLeftCurrentColor: number): Color {
+export function colorAtNextSecond(currentColor: Color, secondsLeftCurrentColor: number, lightCycle: LightColorDuration[]): Color {
     if (secondsLeftCurrentColor !== 1) {
       return currentColor;
     }
-    else {
-      return colorCycle.nextColor;
+
+    const currColorIdx = lightCycle.findIndex(lcd => lcd.color === currentColor);
+    const nextColorIdx = lightCycle.at(currColorIdx + 1 % lightCycle.length);
+    if (nextColorIdx) {
+      return nextColorIdx.color;
     }
+    return currentColor;
 }
