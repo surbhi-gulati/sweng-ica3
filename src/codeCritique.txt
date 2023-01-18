@@ -1,0 +1,24 @@
+Critiques for Whitney's code:
+
+1. Use good names 
+Time is poorly named and unclear as to what it attributes. Can rename to convey
+`seconds left at current light` more descriptively.
+
+2. Make your data mean something
+The time variable is crucial to the program and as such merits a more specific type
+name than `number`.
+
+3. One method / one job
+This is fairly well done but in `colorAtNextSecond` it is implicitly tracking both the
+color cycle order and tracking time event changes. This can see improvement by delegating
+the color cycle to be better tracked through an external variable.
+
+4. Don't repeat yourself
+As mentioned in point 3 we are iterating through all colors in a switch case when instead
+we can simplify the problem of handling what colors we should be seeing. As we expand the 
+program this is going to require a lot of extra encoding about the color cycle.
+
+5. Don't hardcode things that are likely to change
+The order of the colors in `colorAtNextSecond` and the 20 second magic number in
+`timerAtNextSecond` are both values that might change. They should be defined external
+to their respective functions.
